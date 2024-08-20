@@ -1,0 +1,3 @@
+[submodule "sparse-grids-matlab-kit"]
+	path = sparse-grids-matlab-kit
+	url = https://github.com/lorenzo-tamellini/sparse-grids-matlab-kit
