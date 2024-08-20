@@ -6,7 +6,8 @@ function [rhs] = build_rhs_1D(x,PDE_rhs) % a,b,N
     x_mid = x(1:end-1)+h/2; 
     
     f_mid = PDE_rhs(x_mid);
-    f_int = f_mid(2:end-1);  
-    rhs = h/2*[f_int(1);f_int(1:end-1)'+f_int(2:end)';f_int(end)];
-
+    %f_int = f_mid(2:end-1);
+     
+    %rhs = h/2*[f_int(1);f_int(1:end-1)'+f_int(2:end)';f_int(end)];
+	rhs = h/2 * [f_mid(1); f_mid(1:end-1)' + f_mid(2:end)'; f_mid(end)];
 end

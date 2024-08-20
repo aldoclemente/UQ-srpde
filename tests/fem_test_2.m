@@ -13,7 +13,7 @@ M = build_mass_1D(xx,N);
 A_ = set_dirichlet_bc_1D(A+M);
 
 rhs = build_rhs_1D(xx, PDE_rhs);
-rhs = [u0, rhs', u1]';
+rhs = [u0, rhs(2:end-1)', u1]';
 u_ = A_\rhs;
 
 u_ex = @(x) sin(pi*x);
