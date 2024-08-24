@@ -8,12 +8,8 @@ function [f] = sr_pde(observations, locations, mesh_nodes, lambda,
 	
 	n = length(locations);
 	
-	Phi = zeros(n, N+1);
-
-	for j=1:(N+1)
- 		Phi(:,j) = lagr_eval(mesh_nodes(j), mesh_nodes(setxor(1:numel(mesh_nodes),[j])), locations);
-	end
-
+	Phi = build_Phi(mesh_nodes, locations);
+	
 	f = zeros(length(mesh_nodes), length(lambda));
 	
 	for k = 1:length(lambda)
