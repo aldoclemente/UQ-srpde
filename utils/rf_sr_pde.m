@@ -19,10 +19,10 @@ function [f] = rf_sr_pde(observations, locations, mesh_nodes, lambda,
 	f = zeros(length(mesh_nodes), length(lambda));
 	
 	for k = 1:length(lambda)
-		SystemMatrix = [[Phi'*Phi, lambda(k) * A'],
+		SystemMatrix = [[1/n*Phi'*Phi, lambda(k) * A'],
 					   [lambda(k)*A,		-lambda(k)*M]];
 
-		rhs = [Phi'*observations; u];
+		rhs = [1/n*Phi'*observations; lambda(k)*u];
 		if( size(u0)(1) != 0 && size(u1)(1) != 0)
 			
 			SystemMatrix(1, :) = zeros(1, 2*(N+1));
