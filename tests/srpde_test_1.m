@@ -1,10 +1,9 @@
 %% SR-PDE locations at nodes (no forcing, no BC)
-clc
-clear all
 
 cd "../sparse-grids-matlab-kit"
 addpath(genpath(pwd))
 
+clc; clear all;
 source("../utils/load.m")
 randn("seed", 0);
 rand("seed",1);
@@ -146,9 +145,9 @@ locs =  rand(n,1);
 y = f_ex(locs')' + 0.05*range(f_ex(xx)) * randn(n,1);
 
 figure()
-scatter(locs, y, "color", "b")
+plot(xx, f_ex(xx), "color", "r", "linewidth", 3)
 hold on
-plot(xx, f_ex(xx), "linewidth", 3)
+scatter(locs, y, "b", "filled")
 set(gca,'TickLabelInterpreter', 'latex','FontSize',18)
 
 lambda = 10.^(-4:0);
